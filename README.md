@@ -1,6 +1,19 @@
 # BackByWhen
 
-A mobile-friendly web app for tracking shopping returns from the shop’s deadline to the refund.
+A mobile-friendly web app for tracking shopping returns, from the shop’s deadline to your refund.
+
+**[Try BackByWhen](https://chyta2.github.io/backbywhen/)**
+
+![BackByWhen dashboard showing return deadlines, pending refunds, and search](backbywhen-preview.jpg)
+
+## What you can do
+
+- See which returns are due soon or overdue.
+- Download a reminder for your calendar.
+- Save parcel tracking numbers and flag refunds for follow-up.
+- Search by item, shop, or tracking number.
+
+No account required. Your return entries are stored in your browser.
 
 ## Use it
 
@@ -21,9 +34,9 @@ python3 -m http.server 8000
 
 Open [http://localhost:8000](http://localhost:8000). The app uses plain HTML, CSS, and JavaScript and has no build step or external dependencies.
 
-## Publish to GitHub Pages
+## Deploy your own copy
 
-Create a GitHub repository called `backbywhen` and place `index.html`, `styles.css`, `app.js`, and this README in its root. In **Settings → Pages**, choose **Deploy from a branch** and select your default branch and **/ (root)**.
+In your repository’s **Settings → Pages**, choose **Deploy from a branch** and select your default branch and **/ (root)**.
 
 ## First release plan
 
