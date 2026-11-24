@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f0">
+  <meta name="description" content="Track return deadlines, parcels sent back, and refunds.">
+  <title>BackByWhen</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="masthead"><div class="wrap brand"><span class="mark" aria-hidden="true">↶</span> BackByWhen</div></header>
+  <main class="wrap">
+    <div class="intro">
+      <div><h1>Shopping returns</h1><p>Send it back on time and keep track of your refund.</p></div>
+      <button class="primary" id="add" type="button">＋ Add return</button>
+    </div>
+    <section class="stats" aria-label="Return summary">
+      <div><span>To return</span><strong id="open-count">0</strong></div>
+      <div><span>Due within 7 days</span><strong id="soon-count">0</strong></div>
+      <div><span>Awaiting refund</span><strong id="sent-count">0</strong></div>
+    </section>
+    <section class="list-panel" aria-labelledby="list-title">
+      <div class="list-head">
+        <h2 id="list-title">Your returns</h2>
+        <label>Show <select id="filter">
+          <option value="active">Active returns</option><option value="all">All returns</option>
+          <option value="open">To return</option><option value="sent">Awaiting refund</option>
+          <option value="refunded">Refunded</option>
+        </select></label>
+      </div>
+      <div class="search-bar"><label for="search">Search returns</label><input id="search" type="search" placeholder="Item, shop, or tracking number"></div>
+      <ul id="returns"></ul>
+      <div id="empty" class="empty">
+        <span class="empty-icon" aria-hidden="true">↶</span>
+        <h3 id="empty-title">No returns yet</h3>
+        <p id="empty-message">Add an item and enter the deadline shown by the shop.</p>
+        <button id="empty-add" type="button">Add your first return</button>
+      </div>
+    </section>
+    <p class="privacy">Returns are saved in this browser on this device.</p>
+    <p id="feedback" role="status" aria-live="polite"></p>
+    <p id="storage-error" role="alert" hidden></p>
+  </main>
+  <dialog id="editor" aria-labelledby="editor-title">
+    <form id="return-form">
+      <h2 id="editor-title">Add return</h2>
+      <label>Item name <input name="item" required maxlength="100" placeholder="e.g. Running shoes"></label>
+      <label>Shop <span>(optional)</span><input name="shop" maxlength="100" placeholder="e.g. Online store"></label>
+      <div class="fields">
+        <label>Return deadline <input name="deadline" type="date" required min="1900-01-01" max="9999-12-30"></label>
+        <label>Calendar alert <select name="lead"><option value="1">1 day before</option><option value="2" selected>2 days before</option><option value="3">3 days before</option><option value="7">7 days before</option><option value="0">On the deadline</option></select></label>
+      </div>
+      <p class="hint">Save the return, then add it to your calendar to activate the alert.</p>
+      <label>Status <select name="status"><option value="open">To return</option><option value="sent">Sent back</option><option value="refunded">Refunded</option></select></label>
+      <div class="fields">
+        <label>Tracking number <span>(optional)</span><input name="tracking" maxlength="100" spellcheck="false"></label>
+        <label>Refund follow-up <span>(optional)</span><input name="followup" type="date" min="1900-01-01" max="9999-12-30"></label>
+      </div>
+      <p class="hint">Choose a date to check on your refund after sending the item back.</p>
+      <div class="form-actions"><button type="button" id="cancel">Cancel</button><button type="submit" class="primary">Save return</button></div>
+    </form>
+  </dialog>
+  <dialog id="delete-dialog" aria-labelledby="delete-title">
+    <form id="delete-form">
+      <h2 id="delete-title">Delete return?</h2><p id="delete-message"></p>
+      <div class="form-actions"><button type="button" id="keep" autofocus>Keep return</button><button type="submit" class="danger">Delete return</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

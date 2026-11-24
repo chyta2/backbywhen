@@ -1,0 +1,66 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #182b24;
+  background: #f4f6f0;
+  --ink: #182b24;
+  --muted: #52645b;
+  --line: #d7dfd6;
+  --green: #174b38;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.wrap { width: min(100% - 2rem, 66rem); margin-inline: auto; }
+.masthead { background: var(--green); color: white; }
+.brand { display: flex; align-items: center; gap: .7rem; font-weight: 750; padding-block: .9rem; }
+.mark, .empty-icon { display: grid; place-items: center; border-radius: .65rem; background: #daf0cb; color: var(--green); width: 2rem; aspect-ratio: 1; font-size: 1.4rem; }
+.intro, .list-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.intro { padding-block: clamp(2rem, 6vw, 4.5rem) 1.6rem; }
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: clamp(2.35rem, 6vw, 4.2rem); line-height: 1.04; letter-spacing: -.065em; }
+h2 { font-size: 1.35rem; letter-spacing: -.035em; }
+p { color: var(--muted); line-height: 1.5; }
+.intro p { margin-top: .65rem; }
+button, select, input { font: inherit; color: inherit; }
+button, select, input { border: 1px solid var(--line); border-radius: .55rem; background: white; min-height: 2.75rem; padding: .5rem .75rem; }
+button { cursor: pointer; font-weight: 650; }
+button:hover { background: #edf4ea; }
+:focus-visible { outline: 3px solid #467e62; outline-offset: 3px; }
+.primary { background: var(--green); color: white; border-color: var(--green); }
+.primary:hover { background: #256049; }
+.danger { background: #941f2e; color: white; border-color: #941f2e; }
+.danger:hover { background: #751926; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; margin-bottom: 1.3rem; }
+.stats div { background: #e8eee5; border: 1px solid var(--line); border-radius: .85rem; padding: clamp(.65rem, 2.5vw, 1.25rem); display: grid; align-content: space-between; gap: .5rem; }
+.stats span, .list-head label, .hint, .privacy { color: var(--muted); font-size: .88rem; }
+.stats strong { font-size: 1.9rem; line-height: 1; }
+.list-panel { border: 1px solid var(--line); border-radius: 1rem; background: white; }
+.list-head { padding: 1rem clamp(.9rem, 3vw, 1.5rem); border-bottom: 1px solid var(--line); }
+.list-head select { margin-left: .3rem; }
+.search-bar { display: grid; gap: .35rem; padding: .85rem clamp(.9rem, 3vw, 1.5rem); border-bottom: 1px solid var(--line); }
+.search-bar label { color: var(--muted); font-size: .88rem; }
+.search-bar input { width: min(100%, 24rem); }
+.empty { text-align: center; padding: clamp(2rem, 6vw, 4rem) 1rem; }
+.empty-icon { margin: 0 auto .7rem; width: 2.75rem; }
+.empty p { margin-block: .35rem 1rem; }
+#returns { list-style: none; padding: 0; margin: 0; }
+.return-row { display: flex; align-items: center; justify-content: space-between; gap: .8rem; flex-wrap: wrap; padding: 1rem clamp(.9rem, 3vw, 1.5rem); }
+.return-row + .return-row { border-top: 1px solid var(--line); }
+.return-details { display: grid; gap: .3rem; min-width: 0; overflow-wrap: anywhere; }
+.actions { display: flex; flex-wrap: wrap; gap: .45rem; }
+.badge { width: fit-content; border-radius: 2rem; padding: .2rem .55rem; font-size: .8rem; font-weight: 700; background: #e9f0e6; }
+.soon { background: #fff0cb; color: #694900; }
+.overdue { background: #fce5e7; color: #8b1628; }
+.privacy, #feedback, #storage-error { margin-top: .8rem; }
+#storage-error { color: #8b1628; }
+main { padding-bottom: 1.5rem; }
+dialog { width: min(30rem, 100% - 2rem); max-height: calc(100% - 2rem); color: var(--ink); border: 1px solid var(--line); border-radius: 1rem; padding: 1.3rem; }
+dialog::backdrop { background: #172b24a0; }
+form, form label { display: grid; gap: .45rem; }
+form { gap: .9rem; }
+form label { font-weight: 650; }
+form label span { display: inline; color: var(--muted); font-weight: 400; }
+form input, form select { width: 100%; min-width: 0; font-weight: 400; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: .75rem; }
+.form-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: .5rem; }
+[hidden] { display: none !important; }
